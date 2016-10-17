@@ -1,12 +1,26 @@
-/* jshint node: true */
-
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'image-library',
     environment: environment,
-    rootURL: '/',
+    baseURL: '/',
     locationType: 'auto',
+    firebase: {
+    apiKey: "AIzaSyBNNjG5PKBu8wJLGbTYxzgTcbjVhioP8nk",
+    authDomain: "image-library-b3939.firebaseapp.com",
+    databaseURL: "https://image-library-b3939.firebaseio.com",
+    storageBucket: "image-library-b3939.appspot.com",
+    messagingSenderId: "279542170651"
+  },
+    contentSecurityPolicy: {
+      'script-src': '\'self\' \'unsafe-eval\' apis.google.com',
+      'style-src': '\'self\' \'unsafe-inline\' fonts.googleapis.com',
+      'font-src': '\'self\' fonts.gstatic.com',
+      'frame-src': '\'self\' https://*.firebaseapp.com',
+      'img-src': '\'self\' *.gravatar.com s3.amazonaws.com',
+      'connect-src': '\'self\' wss://*.firebaseio.com https://*.googleapis.com'
+    },
     EmberENV: {
+      EXTEND_PROTOTYPES: false,
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
@@ -29,6 +43,7 @@ module.exports = function(environment) {
 
   if (environment === 'test') {
     // Testem prefers this...
+    ENV.baseURL = '/';
     ENV.locationType = 'none';
 
     // keep test console output quieter
